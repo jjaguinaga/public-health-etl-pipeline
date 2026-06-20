@@ -10,8 +10,9 @@ def store_raw_data(data):
    client = MongoClient('localhost', 27017)
    db = client['public_health']
    collection = db['covid_raw']
+   collection.delete_many({})
    collection.insert_many(data)
-   print('Data loaded!')  
+   print('Data loaded!')
 
 if __name__ == '__main__':
    results = extract_data()
