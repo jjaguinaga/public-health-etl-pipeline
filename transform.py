@@ -14,8 +14,16 @@ def get_raw_data():
 def clean_data(df):
    df = df.drop(columns=['_id', 'mmwr_week', 'vaccine_product'])
    df = df[df.age_group != 'all_ages_adj']
+   df['month'] = pd.to_datetime(df['month'], format='%b %Y')
    df = df.drop(columns=['age_adj_vax_ir', 'age_adj_unvax_ir', 'age_adj_irr'])
-   float_col = ['vaccinated_with_outcome', 'fully_vaccinated_population', 'unvaccinated_with_outcome', 'unvaccinated_population', 'crude_vax_ir', 'crude_unvax_ir', 'continuity_correction', 'crude_irr']
+   float_col = ['vaccinated_with_outcome', 
+                'fully_vaccinated_population', 
+                'unvaccinated_with_outcome', 
+                'unvaccinated_population', 
+                'crude_vax_ir', 
+                'crude_unvax_ir', 
+                'continuity_correction', 
+                'crude_irr']
    
    for column in float_col:
       if column == 'crude_irr':
