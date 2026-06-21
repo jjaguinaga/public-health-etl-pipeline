@@ -25,7 +25,7 @@ This pipeline extracts CDC data comparing COVID-19 outcomes (cases and deaths) b
 
 ## Architecture
 
-
+```
 CDC Public API
 ↓
 extract.py  →  MongoDB (raw data storage)
@@ -35,6 +35,7 @@ transform.py  →  Pandas (data cleaning & validation)
 load.py    →  PostgreSQL (data warehouse)
 ↓
 SQL Views   →  Analytics layer for vaccine effectiveness insights
+```
 
 ---
 
@@ -53,8 +54,8 @@ SQL Views   →  Analytics layer for vaccine effectiveness insights
 
 ## Project Structure
 
+```
 public-health-etl-pipeline/
-
 ├── data/
 ├── notebooks/
 ├── sql/
@@ -64,6 +65,7 @@ public-health-etl-pipeline/
 ├── load.py
 ├── pipeline.py
 └── README.md
+```
 
 ---
 
